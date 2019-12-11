@@ -1,0 +1,29 @@
+@media (min-width: 768px) {
+  // header
+  .hdr-contacts_address {
+    display: inline-block;
+  }
+
+  .hdr-contacts-address_main {
+    display: none;
+  }
+
+  // first
+  .first-bg {
+    background-image: url("../images/big-bg.png");
+  }
+
+  .first-control {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 1920px) {
+  // header
+  .hdr-contacts-address_main {
+    display: inline-block;
+  }
+
+  // first
+}

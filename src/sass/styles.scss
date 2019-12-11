@@ -1,0 +1,20 @@
+/*
+   Import partials below
+*/
+
+// helpers
+@import "./helpers/constants.scss";
+@import "./helpers/fonts.scss";
+@import "./helpers/placeholders.scss";
+
+// reset
+@import "./reset/reset.scss";
+@import "./reset/normalize.scss";
+@import "./reset/personal.scss";
+
+// components
+@import "./components/article.scss";
+@import "./components/section.scss";
+
+// media
+@import "./media.scss";
