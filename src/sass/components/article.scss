@@ -1,0 +1,15 @@
+.article {
+  position: relative;
+  padding: 2.375em 0 0.625em;
+  background-color: $color_pink;
+}
+
+.article_bg-image {
+  @extend %bg_position;
+}
+
+.article_heart-image {
+  position: absolute;
+  bottom: -0.875em;
+  left: 2.5em;
+}

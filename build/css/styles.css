@@ -50,6 +50,19 @@
   /* Legacy iOS */
 }
 
+.section_btn {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.article_bg-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
@@ -431,7 +444,7 @@ input[type="radio"] {
  *    (include `-moz` to future-proof).
  */
 
-input[type="search"] {
+input[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   /* 2 */
@@ -907,6 +920,61 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.article {
+  position: relative;
+  padding: 2.375em 0 0.625em;
+  background-color: #fc5095;
+}
+
+.article_heart-image {
+  position: absolute;
+  bottom: -0.875em;
+  left: 2.5em;
+}
+
+.section {
+  padding: 1.75em 2.875em;
+}
+
+.section_title {
+  font-size: 1.125em;
+  line-height: 1em;
+  font-family: "Open_Sans_BD", sans-serif;
+  color: #fc5095;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+.section_text {
+  font-size: 1em;
+  line-height: 1em;
+  font-family: "Open_Sans_SBD", sans-serif;
+  color: #3b3b3b;
+  text-transform: uppercase;
+  margin-bottom: 3.375em;
+}
+
+.section_question {
+  font-size: 1.375em;
+  line-height: 1em;
+  font-family: "Open_Sans_BD", sans-serif;
+  color: #3b3b3b;
+  text-transform: uppercase;
+  margin-bottom: 0.8181em;
+}
+
+.section_btn {
+  font-size: 1.375em;
+  line-height: 1em;
+  width: 10.7272em;
+  height: 2.1363em;
+  border-radius: 0.6818em;
+  background-color: #fc5095;
+  font-family: "Open_Sans_BD", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
