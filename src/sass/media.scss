@@ -39,7 +39,7 @@
     flex-flow: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0 4.65em;
+    padding: 0 9em;
     background-color: rgba(255, 255, 255, 0.741);
   }
 
@@ -64,11 +64,13 @@
   .article > .article_heart-icon {
     width: 5em;
     height: 5em;
+    // top: 29vh;
     top: 19.5em;
     left: unset;
     bottom: unset;
     right: -2.875em;
     border-width: 0.5625em;
+    z-index: 1;
   }
 
   .article_heart-icon span {
@@ -120,10 +122,6 @@
 
   .orange .section {
     background-color: $color_orange;
-  }
-
-  .orange .section > div {
-    padding-bottom: 9.375em;
   }
 
   // YELLOW
@@ -265,5 +263,17 @@
 
   .blue .section-form-box_age-limit {
     font-size: 0.8125rem; // 13px
+  }
+}
+
+// min-height 1079px
+
+@media (max-height: 1079px) {
+  .blue .section {
+    padding-top: 5.5em;
+  }
+
+  .blue .section > div {
+    padding-top: 4em;
   }
 }

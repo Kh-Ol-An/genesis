@@ -47,7 +47,6 @@
 
 .section_form-box {
   flex: 1;
-  // width: 13.375em;
   width: 75%;
   height: 100%;
   position: relative;
@@ -59,6 +58,15 @@
 .section-form-box_continue {
   line-height: 1em;
   @extend %btn_res;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.section_start:hover,
+.section-form-box_checkmark:hover,
+.section-form-box-gender-wrap_checkmark:hover,
+.section-form-box_continue:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .section-form-box_orange > .section-form-box_checkmark,
@@ -74,6 +82,8 @@
   font-family: $family_SBD;
   background-color: #fff;
   color: $color_main;
+  transform: scale(1);
+  transition: all 0.3s ease-in;
 }
 
 .section-form-box_orange:nth-child(-n + 2) > .section-form-box_checkmark,
@@ -88,20 +98,27 @@
   display: block;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(1);
   bottom: 0;
   border-radius: 0.6818em;
   font-family: $family_BD;
   color: #fff;
   text-transform: uppercase;
+  transition: all 0.3s ease-in;
 }
 
 // prettier-ignore
-.display,
 input[type=radio],
 input[type=checkbox] {
   display: none;
 }
+
+.display-none {
+  transform: translateX(-50%) scale(0);
+  transition: all 0.3s ease-in;
+}
+
+.section-form-box_orange > input:checked
 
 // PINK
 
@@ -182,6 +199,16 @@ input[type=checkbox] {
   margin-right: 0.875em;
 }
 
+.yellow .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .male-active,
+.yellow .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .famale-active {
+  display: none;
+}
+
+.yellow .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .male,
+.yellow .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .famale {
+  display: none;
+}
+
 .yellow .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark {
   background-color: $color_yellow;
   color: #fff;
@@ -222,6 +249,16 @@ input[type=checkbox] {
 
 .blue .section-form-box-gender_wrap img {
   margin-right: 0.1875em;
+}
+
+.blue .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .male-active,
+.blue .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .famale-active {
+  display: none;
+}
+
+.blue .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .male,
+.blue .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .famale {
+  display: none;
 }
 
 .blue .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark {

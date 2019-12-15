@@ -975,10 +975,15 @@ img {
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
-.display-none {
-  display: none;
+.display-opacity {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .article-bg-box-text-wrap_title,
@@ -999,6 +1004,7 @@ img {
 
 .article_ftr {
   display: none;
+  z-index: 1;
 }
 
 .article_heart-icon {
@@ -1130,6 +1136,16 @@ img {
 .section-form-box-gender_wrap,
 .section-form-box_continue {
   line-height: 1em;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.section_start:hover,
+.section-form-box_checkmark:hover,
+.section-form-box-gender-wrap_checkmark:hover,
+.section-form-box_continue:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .section-form-box_orange > .section-form-box_checkmark,
@@ -1148,6 +1164,10 @@ img {
   font-family: "Open_Sans_SBD", sans-serif;
   background-color: #fff;
   color: #3b3b3b;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .section-form-box_orange:nth-child(-n + 2) > .section-form-box_checkmark,
@@ -1162,22 +1182,30 @@ img {
   display: block;
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%) scale(1);
+  transform: translateX(-50%) scale(1);
   bottom: 0;
   border-radius: 0.6818em;
   font-family: "Open_Sans_BD", sans-serif;
   color: #fff;
   text-transform: uppercase;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
-.display,
 input[type=radio],
 input[type=checkbox] {
   display: none;
 }
 
-.pink .section_title-1 {
+.display-none {
+  -webkit-transform: translateX(-50%) scale(0);
+  transform: translateX(-50%) scale(0);
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.section-form-box_orange > input:checked .pink .section_title-1 {
   color: #fc5095;
 }
 
@@ -1250,6 +1278,16 @@ input[type=checkbox] {
   margin-right: 0.875em;
 }
 
+.yellow .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .male-active,
+.yellow .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .famale-active {
+  display: none;
+}
+
+.yellow .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .male,
+.yellow .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .famale {
+  display: none;
+}
+
 .yellow .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark {
   background-color: #fcc150;
   color: #fff;
@@ -1290,6 +1328,16 @@ input[type=checkbox] {
 
 .blue .section-form-box-gender_wrap img {
   margin-right: 0.1875em;
+}
+
+.blue .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .male-active,
+.blue .section-form-box-gender_wrap > input:not(:checked) + .section-form-box-gender-wrap_checkmark > .famale-active {
+  display: none;
+}
+
+.blue .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .male,
+.blue .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark > .famale {
+  display: none;
 }
 
 .blue .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark {
@@ -1410,7 +1458,7 @@ input[type=checkbox] {
     align-items: center;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    padding: 0 4.65em;
+    padding: 0 9em;
     background-color: rgba(255, 255, 255, 0.741);
   }
 
@@ -1440,6 +1488,7 @@ input[type=checkbox] {
     bottom: unset;
     right: -2.875em;
     border-width: 0.5625em;
+    z-index: 1;
   }
 
   .article_heart-icon span {
@@ -1485,10 +1534,6 @@ input[type=checkbox] {
 
   .orange .section {
     background-color: #fc8950;
-  }
-
-  .orange .section > div {
-    padding-bottom: 9.375em;
   }
 
   .yellow .section {
@@ -1610,5 +1655,15 @@ input[type=checkbox] {
 
   .blue .section-form-box_age-limit {
     font-size: 0.8125rem;
+  }
+}
+
+@media (max-height: 1079px) {
+  .blue .section {
+    padding-top: 5.5em;
+  }
+
+  .blue .section > div {
+    padding-top: 4em;
   }
 }

@@ -10,31 +10,43 @@
     </p>
     <p class="section_question">Lorem ipsum?</p>
     <button class="section_start" type="button">Начать</button>
-    <form class="section_form-box">
-      <label class="section-form-box_orange">
+    <form class="section_form-box" action="#">
+      <label class="section-form-box_orange option-a">
         <input type="radio" name="orange" />
         <span class="section-form-box_checkmark">Вариант А</span>
       </label>
-      <label class="section-form-box_orange">
+      <label class="section-form-box_orange option-b">
         <input type="radio" name="orange" />
         <span class="section-form-box_checkmark">Вариант Б</span>
       </label>
-      <label class="section-form-box_orange">
+      <label class="section-form-box_orange option-c">
         <input type="radio" name="orange" />
         <span class="section-form-box_checkmark">Вариант В</span>
       </label>
       <p class="section-form-box_text">Я ищу:</p>
       <div class="section-form-box_gender">
-        <label class="section-form-box-gender_wrap">
+        <label class="section-form-box-gender_wrap option-m">
           <input type="radio" name="gender" />
           <span class="section-form-box-gender-wrap_checkmark">
-            <img src="./images/male.png" alt="male" /> Вариант А
+            <img class="male" src="./images/male.png" alt="male" />
+            <img
+              class="male-active"
+              src="./images/male-active.png"
+              alt="male"
+            />
+            Вариант А
           </span>
         </label>
-        <label class="section-form-box-gender_wrap">
+        <label class="section-form-box-gender_wrap option-f">
           <input type="radio" name="gender" />
           <span class="section-form-box-gender-wrap_checkmark">
-            <img src="./images/famale.png" alt="famale" /> Вариант Б
+            <img class="famale" src="./images/famale.png" alt="famale" />
+            <img
+              class="famale-active"
+              src="./images/famale-active.png"
+              alt="male"
+            />
+            Вариант Б
           </span>
         </label>
       </div>
@@ -50,11 +62,7 @@
         Регистрируясь, вы подтверждаете, что вам уже исполнилось 18 лет и вы
         ознакомились с условиями пользования сайтом.
       </label>
-      <button
-        id="continue"
-         class="section-form-box_continue display"
-        type="submit"
-      >
+      <button class="section-form-box_continue display-none" type="submit">
         Продолжить
       </button>
     </form>
