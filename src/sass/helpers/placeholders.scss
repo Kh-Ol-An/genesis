@@ -6,7 +6,6 @@
 }
 
 %bg_position {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  object-fit: cover;
+  object-position: 0 0;
 }

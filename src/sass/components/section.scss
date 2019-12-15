@@ -1,18 +1,34 @@
 .section {
-  padding: 1.75em 2.875em;
+  flex: 1;
+  padding: 1.75em 2.375em;
 }
 
-.section_title {
-  font-size: 1.125em; // 18px
+.section > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.section_title-1,
+.section_title-2 {
   line-height: 1em;
   font-family: $family_BD;
-  color: $color_pink;
   text-transform: uppercase;
+}
+
+.section_title-1 {
+  font-size: 1.125rem; // 18px
   margin-bottom: 1em;
 }
 
+.section_title-2 {
+  font-size: 1rem; // 16px
+  margin-bottom: 1.125em;
+}
+
 .section_text {
-  font-size: 1em; // 16px
+  font-size: 1rem; // 16px
   line-height: 1em;
   font-family: $family_SBD;
   color: $color_main;
@@ -21,7 +37,7 @@
 }
 
 .section_question {
-  font-size: 1.375em; // 22px
+  font-size: 1.375rem; // 22px
   line-height: 1em;
   font-family: $family_BD;
   color: $color_main;
@@ -29,15 +45,251 @@
   margin-bottom: 0.8181em;
 }
 
-.section_btn {
-  font-size: 1.375em; // 22px
+.section_form-box {
+  flex: 1;
+  // width: 13.375em;
+  width: 75%;
+  height: 100%;
+  position: relative;
+}
+
+.section_start,
+.section-form-box_orange,
+.section-form-box-gender_wrap,
+.section-form-box_continue {
   line-height: 1em;
-  width: 10.7272em;
-  height: 2.1363em;
   @extend %btn_res;
+}
+
+.section-form-box_orange > .section-form-box_checkmark,
+.section-form-box-gender_wrap > .section-form-box-gender-wrap_checkmark {
+  font-size: 1rem; // 16px
+  width: 100%;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 0.0625em solid #d3d3d3;
+  font-family: $family_SBD;
+  background-color: #fff;
+  color: $color_main;
+}
+
+.section-form-box_orange:nth-child(-n + 2) > .section-form-box_checkmark,
+.yellow .section-form-box-gender_wrap:first-child > .section-form-box-gender-wrap_checkmark {
+  margin-bottom: 0.625em;
+}
+
+.section-form-box_continue {
+  font-size: 1rem; // 16px
+  width: 10.625em;
+  height: 3em;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
   border-radius: 0.6818em;
-  background-color: $color_pink;
   font-family: $family_BD;
   color: #fff;
   text-transform: uppercase;
+}
+
+// prettier-ignore
+.display,
+input[type=radio],
+input[type=checkbox] {
+  display: none;
+}
+
+// PINK
+
+.pink .section_title-1 {
+  color: $color_pink;
+}
+
+.pink .section_title-2,
+.pink .section-form-box_orange,
+.pink .section-form-box-gender_wrap,
+.pink .section-form-box_text,
+.pink .section-form-box_input,
+.pink .section-form-box_age-limit,
+.pink .section-form-box_continue {
+  display: none;
+}
+
+.pink .section_start {
+  font-size: 1.375rem; // 22px
+  width: 10.7272em;
+  height: 2.1363em;
+  background-color: $color_pink;
+  border-radius: 0.6818em;
+  font-family: $family_BD;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+// ORANGE
+
+.orange .section_title-1,
+.orange .section_text,
+.orange .section_question,
+.orange .section_start,
+.orange .section-form-box-gender_wrap,
+.orange .section-form-box_text,
+.orange .section-form-box_input,
+.orange .section-form-box_age-limit {
+  display: none;
+}
+
+.orange .section_title-2 {
+  color: $color_orange;
+}
+
+.orange .section-form-box_orange > input:checked + .section-form-box_checkmark {
+  background-color: $color_orange;
+  color: #fff;
+}
+
+.orange .section-form-box_continue {
+  background-color: $color_orange;
+}
+
+// YELLOW
+
+.yellow .section_title-1 {
+  color: $color_yellow;
+  margin-bottom: 3em;
+}
+
+.yellow .section_title-2,
+.yellow .section_text,
+.yellow .section_question,
+.yellow .section_start,
+.yellow .section-form-box_orange,
+.yellow .section-form-box_text,
+.yellow .section-form-box_input,
+.yellow .section-form-box_age-limit {
+  display: none;
+}
+
+.yellow .section-form-box_continue {
+  background-color: $color_yellow;
+}
+
+.yellow .section-form-box_gender img {
+  margin-right: 0.875em;
+}
+
+.yellow .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark {
+  background-color: $color_yellow;
+  color: #fff;
+}
+
+.yellow .section-form-box_continue {
+  background-color: $color_yellow;
+}
+
+// BLUE
+
+.blue .section_title-1,
+.blue .section_text,
+.blue .section_question,
+.blue .section_start,
+.blue .section-form-box_orange {
+  display: none;
+}
+
+.blue .section_title-2 {
+  color: $color_blue;
+  margin-bottom: 0.875em;
+}
+
+.blue .section_form-box {
+  width: 100%;
+}
+
+.blue .section-form-box_gender {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blue .section-form-box-gender_wrap {
+  width: 49%;
+  margin-bottom: 0.375em;
+}
+
+.blue .section-form-box-gender_wrap img {
+  margin-right: 0.1875em;
+}
+
+.blue .section-form-box-gender_wrap > input:checked + .section-form-box-gender-wrap_checkmark {
+  background-color: $color_blue;
+  color: #fff;
+}
+
+.blue .section-form-box_text {
+  font-size: 0.625rem; // 10px
+  line-height: 1em;
+  font-family: $family_SBD;
+  color: #555;
+  margin-bottom: 0.4em;
+}
+
+.blue .section-form-box_input {
+  font-size: 0.625rem; // 10px
+  line-height: 1em;
+  width: 100%;
+  height: 4.7em;
+  border-radius: 10px;
+  border: 0.1em solid #d3d3d3;
+  font-family: $family_L;
+  color: $color_main;
+  padding: 0.7em;
+  margin-bottom: 0.7em;
+}
+
+.blue .section-form-box_age-limit {
+  font-size: 0.5rem; // 8px
+  line-height: 1em;
+  display: inline-block;
+  position: relative;
+  font-family: $family_L;
+  color: #333;
+  padding-left: 1.875em;
+}
+
+.blue .section-form-box_age-limit > .section-form-box-age-limit_checkmark {
+  font-size: inherit; // 8px
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 0.25em;
+  left: 0;
+  background-color: transparent;
+  border: 0.125em solid #7f7f7f;
+}
+
+.blue .section-form-box-age-limit_input:checked + .section-form-box-age-limit_checkmark:after {
+  width: 0.5em;
+  height: 0.875em;
+  position: absolute;
+  top: -0.25em;
+  left: 0.125em;
+  display: block;
+  content: "";
+  border: solid #7f7f7f;
+  border-width: 0 0.125em 0.125em 0;
+  transform: rotate(45deg);
+}
+
+.blue .section-form-box_continue {
+  display: block;
+  left: 0;
+  transform: translateX(0%);
+  border-radius: 1em;
+  border: 0.0625em solid $color_blue;
+  background-color: #fff;
+  color: #a9a9a9;
 }

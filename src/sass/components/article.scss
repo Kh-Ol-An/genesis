@@ -1,15 +1,131 @@
 .article {
   position: relative;
   padding: 2.375em 0 0.625em;
-  background-color: $color_pink;
 }
 
-.article_bg-image {
+.article-bg-box_image {
   @extend %bg_position;
 }
 
-.article_heart-image {
+.article_heart-icon {
   position: absolute;
   bottom: -0.875em;
   left: 2.5em;
+}
+
+.article_bg-box,
+.article-bg-box_image {
+  width: 100%;
+  height: 14.25em;
+}
+
+.article_bg-box {
+  position: relative;
+}
+
+.article-bg-box_text-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-none {
+  display: none;
+}
+
+.article-bg-box-text-wrap_title,
+.article-bg-box-text-wrap_text {
+  font-family: $family_EBD;
+  color: #fff;
+}
+
+.article-bg-box-text-wrap_title {
+  font-size: 7.625rem; // 122px
+  line-height: 1.2em;
+}
+
+.article-bg-box-text-wrap_text {
+  font-size: 0.875rem; // 14px
+  text-transform: uppercase;
+}
+
+.article_ftr {
+  display: none;
+}
+
+.article_heart-icon {
+  width: 2.375em;
+  height: 2.375em;
+  display: flex;
+  justify-content: center;
+  line-height: 2em;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.article_heart-icon > span {
+  font-size: 1.25rem; // 20px
+}
+
+// PINK
+
+.pink > .article {
+  background-color: $color_pink;
+}
+
+.pink .article_heart-icon {
+  border: 0.25em solid $color_pink;
+  color: $color_pink;
+}
+
+// ORANGE
+
+.orange > .article {
+  background-color: $color_orange;
+}
+
+.orange .article_heart-icon {
+  border: 0.25em solid $color_orange;
+  color: $color_orange;
+}
+
+.orange .article-bg-box_text-wrap {
+  background-color: rgba(252, 137, 80, 0.702);
+}
+
+// YELLOW
+
+.yellow > .article {
+  background-color: $color_yellow;
+}
+
+.yellow .article_heart-icon {
+  border: 0.25em solid $color_yellow;
+  color: $color_yellow;
+}
+
+.yellow .article-bg-box_text-wrap {
+  background-color: rgba(252, 193, 80, 0.549);
+}
+
+// BLUE
+
+.blue > .article {
+  background-color: $color_blue;
+}
+
+.blue .article_heart-icon {
+  border: 0.25em solid $color_blue;
+  color: $color_blue;
+}
+
+.blue .article_bg-box,
+.blue .article-bg-box_image {
+  height: 8.125em;
 }

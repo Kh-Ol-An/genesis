@@ -1,8 +1,62 @@
 <section class="section">
-  <h2 class="section_title">Lorem ipsum</h2>
-  <p class="section_text">
-    Mauris vel nisi ac orci placerat semper. Aenean sapien massa.
-  </p>
-  <p class="section_question">Lorem ipsum?</p>
-  <button class="section_btn">Начать</button>
+  <div>
+    <h2 class="section_title-1">Lorem ipsum</h2>
+    <h2 class="section_title-2">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a urna
+      sit amet
+    </h2>
+    <p class="section_text">
+      Mauris vel nisi ac orci placerat semper. Aenean sapien massa.
+    </p>
+    <p class="section_question">Lorem ipsum?</p>
+    <button class="section_start" type="button">Начать</button>
+    <form class="section_form-box">
+      <label class="section-form-box_orange">
+        <input type="radio" name="orange" />
+        <span class="section-form-box_checkmark">Вариант А</span>
+      </label>
+      <label class="section-form-box_orange">
+        <input type="radio" name="orange" />
+        <span class="section-form-box_checkmark">Вариант Б</span>
+      </label>
+      <label class="section-form-box_orange">
+        <input type="radio" name="orange" />
+        <span class="section-form-box_checkmark">Вариант В</span>
+      </label>
+      <p class="section-form-box_text">Я ищу:</p>
+      <div class="section-form-box_gender">
+        <label class="section-form-box-gender_wrap">
+          <input type="radio" name="gender" />
+          <span class="section-form-box-gender-wrap_checkmark">
+            <img src="./images/male.png" alt="male" /> Вариант А
+          </span>
+        </label>
+        <label class="section-form-box-gender_wrap">
+          <input type="radio" name="gender" />
+          <span class="section-form-box-gender-wrap_checkmark">
+            <img src="./images/famale.png" alt="famale" /> Вариант Б
+          </span>
+        </label>
+      </div>
+      <p class="section-form-box_text">Ваше имя:</p>
+      <input class="section-form-box_input" type="text" />
+      <p class="section-form-box_text">Email:</p>
+      <input class="section-form-box_input" type="email" />
+      <p class="section-form-box_text">Придумайте пароль:</p>
+      <input class="section-form-box_input" type="password" />
+      <label class="section-form-box_age-limit">
+        <input class="section-form-box-age-limit_input" type="checkbox" />
+        <span class="section-form-box-age-limit_checkmark"></span>
+        Регистрируясь, вы подтверждаете, что вам уже исполнилось 18 лет и вы
+        ознакомились с условиями пользования сайтом.
+      </label>
+      <button
+        id="continue"
+         class="section-form-box_continue display"
+        type="submit"
+      >
+        Продолжить
+      </button>
+    </form>
+  </div>
 </section>
