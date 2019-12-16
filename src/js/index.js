@@ -42,61 +42,109 @@ function removeClassList() {
 
 // ====================================================================
 
+// form
 const arrForm = document.querySelectorAll('.section_form-box');
 const forms = Array.from(arrForm);
 const form = forms[forms.length - 1];
-const inputs = form.querySelectorAll('.section-form-box_input');
-const nameInput = document.querySelector('.section_form-box input[type=text]');
-const emailInput = document.querySelector(
+
+// inputs
+const arrInputs = form.querySelectorAll('.section-form-box_input');
+const inputs = Array.from(arrInputs);
+inputs.slice(-3);
+
+// input
+const arrNameInput = document.querySelectorAll(
+  '.section_form-box input[type=text]',
+);
+const nameInputs = Array.from(arrNameInput);
+const nameInput = nameInputs[nameInputs.length - 1];
+
+// email
+const arrEmailInput = document.querySelectorAll(
   '.section_form-box input[type=email]',
 );
+const arrEmailInputs = Array.from(arrEmailInput);
+const emailInput = arrEmailInputs[arrEmailInputs.length - 1];
+
+// password
+const arrPasswordInput = document.querySelectorAll(
+  '.section_form-box input[type=password]',
+);
+const arrPasswordInputs = Array.from(arrPasswordInput);
+const passwordInput = arrPasswordInputs[arrPasswordInputs.length - 1];
+
+// checkbox
+const arrCheckboxInput = document.querySelectorAll(
+  '.section-form-box-age-limit_input',
+);
+const checkboxInputs = Array.from(arrCheckboxInput);
+const checkboxInput = checkboxInputs[checkboxInputs.length - 1];
+
+// btnForm
+const btnContinueForm = btnContinue[btnContinue.length - 1];
+
+btnContinueForm.disabled = !checkboxInput.checked;
+checkboxInput.addEventListener('click', handleCheckedSubmit);
+function handleCheckedSubmit() {
+  btnContinueForm.disabled = !checkboxInput.checked;
+}
 
 form.addEventListener('submit', handleSubmit);
-
 function handleSubmit(e) {
-  console.log('form', form);
-  console.log('object');
   e.preventDefault();
-
-  resetErrorMessage();
-
-  requiredInput();
 
   validationName();
   validationEmail();
+  validationPassword();
 }
 
-const resetErrorMessage = () => {
-  const errors = form.querySelectorAll('.error');
-  errors.forEach(error => error.remove());
-};
+const resetErrorMessage = input => (input.value = '');
 
-const createErrorMessage = (input, message) => {
-  const error = document.createElement('p');
-  error.className = 'error';
-  error.textContent = message;
-  input.after(error);
-};
-
-const requiredInput = () =>
-  inputs.forEach(input => {
-    if (input.value) return;
-    const requiredMessage = 'Это поле обязательно к заполнению';
-    createErrorMessage(input, requiredMessage);
-  });
+const createErrorMessage = (input, message) => (input.placeholder = message);
 
 const validationName = () => {
-  const validName = /^[a-zA-Zа-яА-Я]+$/.test(nameInput.value);
-  if (validName) return;
-  const validNameMessage = 'Допускаются только буквы';
-  createErrorMessage(nameInput, validNameMessage);
+  if (nameInput.value) {
+    const validName = /^[a-zA-Zа-яА-Я]+$/.test(nameInput.value);
+    if (validName) return;
+    resetErrorMessage(nameInput);
+    const validNameMessage = 'Допускаются только буквы';
+    createErrorMessage(nameInput, validNameMessage);
+    nameInput.classList.add('error');
+  } else {
+    const validNameMessage = 'Введите свое имя';
+    createErrorMessage(nameInput, validNameMessage);
+    nameInput.classList.add('error');
+  }
 };
 
 const validationEmail = () => {
-  const validEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/.test(
-    emailInput.value,
-  );
-  if (validEmail) return;
-  const validEmailMessage = 'Введите валидный email';
-  createErrorMessage(emailInput, validEmailMessage);
+  if (emailInput.value) {
+    const validEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/.test(
+      emailInput.value,
+    );
+    if (validEmail) return;
+    resetErrorMessage(emailInput);
+    const validEmailMessage = 'Неверный формат email';
+    createErrorMessage(emailInput, validEmailMessage);
+    emailInput.classList.add('error');
+  } else {
+    const validEmailMessage = 'Введите свой email';
+    createErrorMessage(emailInput, validEmailMessage);
+    emailInput.classList.add('error');
+  }
+};
+
+const validationPassword = () => {
+  if (passwordInput.value) {
+    const validPassword = passwordInput.value.length > 3;
+    if (validPassword) return;
+    resetErrorMessage(passwordInput);
+    const validPasswordMessage = 'Пароль должен быть длинее 3 символов';
+    createErrorMessage(passwordInput, validPasswordMessage);
+    passwordInput.classList.add('error');
+  } else {
+    const validPasswordMessage = 'Придумайте новый пароль';
+    createErrorMessage(passwordInput, validPasswordMessage);
+    passwordInput.classList.add('error');
+  }
 };

@@ -1,3 +1,12 @@
+@media only screen and (max--moz-device-pixel-ratio: 1),
+  only screen and (-webkit-max-device-pixel-ratio: 1),
+  only screen and (-o-max-device-pixel-ratio: 1),
+  only screen and (max-device-pixel-ratio: 1) {
+  html {
+    font-size: 14px;
+  }
+}
+
 @media (min-width: 1024px) {
   .pink,
   .orange,
@@ -64,7 +73,6 @@
   .article > .article_heart-icon {
     width: 5em;
     height: 5em;
-    // top: 29vh;
     top: 19.5em;
     left: unset;
     bottom: unset;
@@ -77,8 +85,6 @@
     font-size: 2.75rem; // 44px
     line-height: 1.5909em;
   }
-
-  // ===============
 
   .section {
     padding: 14.125em 0 0 0.8125em;
@@ -166,8 +172,6 @@
     padding: 0 8.9em;
   }
 
-  // ===============
-
   .section_title-1,
   .section_title-2 {
     font-size: 1.5625rem; // 25px
@@ -226,8 +230,6 @@
     padding: 0 15em;
   }
 
-  // ===============
-
   .section_title-1,
   .section_title-2 {
     font-size: 1.9375rem; // 31px
@@ -263,17 +265,5 @@
 
   .blue .section-form-box_age-limit {
     font-size: 0.8125rem; // 13px
-  }
-}
-
-// min-height 1079px
-
-@media (max-height: 1079px) {
-  .blue .section {
-    padding-top: 5.5em;
-  }
-
-  .blue .section > div {
-    padding-top: 4em;
   }
 }

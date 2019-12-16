@@ -37,58 +37,99 @@ function removeClassList() {
     return btn.classList.remove('display-none');
   });
 } // ====================================================================
+// form
 
 
 var arrForm = document.querySelectorAll('.section_form-box');
 var forms = Array.from(arrForm);
-var form = forms[forms.length - 1];
-var inputs = form.querySelectorAll('.section-form-box_input');
-var nameInput = document.querySelector('.section_form-box input[type=text]');
-var emailInput = document.querySelector('.section_form-box input[type=email]');
+var form = forms[forms.length - 1]; // inputs
+
+var arrInputs = form.querySelectorAll('.section-form-box_input');
+var inputs = Array.from(arrInputs);
+inputs.slice(-3); // input
+
+var arrNameInput = document.querySelectorAll('.section_form-box input[type=text]');
+var nameInputs = Array.from(arrNameInput);
+var nameInput = nameInputs[nameInputs.length - 1]; // email
+
+var arrEmailInput = document.querySelectorAll('.section_form-box input[type=email]');
+var arrEmailInputs = Array.from(arrEmailInput);
+var emailInput = arrEmailInputs[arrEmailInputs.length - 1]; // password
+
+var arrPasswordInput = document.querySelectorAll('.section_form-box input[type=password]');
+var arrPasswordInputs = Array.from(arrPasswordInput);
+var passwordInput = arrPasswordInputs[arrPasswordInputs.length - 1]; // checkbox
+
+var arrCheckboxInput = document.querySelectorAll('.section-form-box-age-limit_input');
+var checkboxInputs = Array.from(arrCheckboxInput);
+var checkboxInput = checkboxInputs[checkboxInputs.length - 1]; // btnForm
+
+var btnContinueForm = btnContinue[btnContinue.length - 1];
+btnContinueForm.disabled = !checkboxInput.checked;
+checkboxInput.addEventListener('click', handleCheckedSubmit);
+
+function handleCheckedSubmit() {
+  btnContinueForm.disabled = !checkboxInput.checked;
+}
+
 form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
-  console.log('form', form);
-  console.log('object');
   e.preventDefault();
-  resetErrorMessage();
-  requiredInput();
   validationName();
   validationEmail();
+  validationPassword();
 }
 
-var resetErrorMessage = function resetErrorMessage() {
-  var errors = form.querySelectorAll('.error');
-  errors.forEach(function (error) {
-    return error.remove();
-  });
+var resetErrorMessage = function resetErrorMessage(input) {
+  return input.value = '';
 };
 
 var createErrorMessage = function createErrorMessage(input, message) {
-  var error = document.createElement('p');
-  error.className = 'error';
-  error.textContent = message;
-  input.after(error);
-};
-
-var requiredInput = function requiredInput() {
-  return inputs.forEach(function (input) {
-    if (input.value) return;
-    var requiredMessage = 'Это поле обязательно к заполнению';
-    createErrorMessage(input, requiredMessage);
-  });
+  return input.placeholder = message;
 };
 
 var validationName = function validationName() {
-  var validName = /^[a-zA-Zа-яА-Я]+$/.test(nameInput.value);
-  if (validName) return;
-  var validNameMessage = 'Допускаются только буквы';
-  createErrorMessage(nameInput, validNameMessage);
+  if (nameInput.value) {
+    var validName = /^[a-zA-Zа-яА-Я]+$/.test(nameInput.value);
+    if (validName) return;
+    resetErrorMessage(nameInput);
+    var validNameMessage = 'Допускаются только буквы';
+    createErrorMessage(nameInput, validNameMessage);
+    nameInput.classList.add('error');
+  } else {
+    var _validNameMessage = 'Введите свое имя';
+    createErrorMessage(nameInput, _validNameMessage);
+    nameInput.classList.add('error');
+  }
 };
 
 var validationEmail = function validationEmail() {
-  var validEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/.test(emailInput.value);
-  if (validEmail) return;
-  var validEmailMessage = 'Введите валидный email';
-  createErrorMessage(emailInput, validEmailMessage);
+  if (emailInput.value) {
+    var validEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/.test(emailInput.value);
+    if (validEmail) return;
+    resetErrorMessage(emailInput);
+    var validEmailMessage = 'Неверный формат email';
+    createErrorMessage(emailInput, validEmailMessage);
+    emailInput.classList.add('error');
+  } else {
+    var _validEmailMessage = 'Введите свой email';
+    createErrorMessage(emailInput, _validEmailMessage);
+    emailInput.classList.add('error');
+  }
+};
+
+var validationPassword = function validationPassword() {
+  if (passwordInput.value) {
+    var validPassword = passwordInput.value.length > 3;
+    if (validPassword) return;
+    resetErrorMessage(passwordInput);
+    var validPasswordMessage = 'Пароль должен быть длинее 3 символов';
+    createErrorMessage(passwordInput, validPasswordMessage);
+    passwordInput.classList.add('error');
+  } else {
+    var _validPasswordMessage = 'Придумайте новый пароль';
+    createErrorMessage(passwordInput, _validPasswordMessage);
+    passwordInput.classList.add('error');
+  }
 };

@@ -118,8 +118,6 @@ input[type=checkbox] {
   transition: all 0.3s ease-in;
 }
 
-.section-form-box_orange > input:checked
-
 // PINK
 
 .pink .section_title-1 {
@@ -285,6 +283,17 @@ input[type=checkbox] {
   color: $color_main;
   padding: 0.7em;
   margin-bottom: 0.7em;
+}
+
+.blue .error {
+  width: 100%;
+  height: 4.7em;
+  border-radius: 10px;
+  border: 0.1em solid #f00;
+}
+
+.blue .section-form-box_input::placeholder {
+  color: #f00;
 }
 
 .blue .section-form-box_age-limit {
