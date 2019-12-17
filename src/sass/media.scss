@@ -97,6 +97,10 @@
     padding: 6.875em 3.75em;
   }
 
+  .section > div {
+    padding-right: 13.75em;
+  }
+
   .orange .section > div,
   .yellow .section > div,
   .blue .section > div {
@@ -110,6 +114,10 @@
 
   .section_text {
     margin-bottom: 7.0833em;
+  }
+
+  .section .section_form-box {
+    width: 28.125em;
   }
 
   // PINK
@@ -221,13 +229,17 @@
   }
 
   .article_ftr {
-    padding: 0 7.75em;
+    padding: 0 6em;
   }
 
   .orange .article_ftr,
   .yellow .article_ftr,
   .blue .article_ftr {
     padding: 0 15em;
+  }
+
+  .article-ftr_text {
+    font-size: 0.75rem; // 10px
   }
 
   .section_title-1,
@@ -257,6 +269,10 @@
   }
 
   // BLUE
+
+  .blue .section > div {
+    padding-top: 5.9375em;
+  }
 
   .blue .section-form-box_text,
   .blue .section-form-box_input {
